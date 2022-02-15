@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +23,18 @@ namespace Smokeball___Development_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainViewModel m_mainViewModel;
         public MainWindow()
         {
+            m_mainViewModel = new MainViewModel();
+            this.DataContext = m_mainViewModel;
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            m_mainViewModel.ExecuteGoogleQuery();
+            this.WebBrowser.Navigate(new Uri(m_mainViewModel.QueryUrl));
         }
     }
 }
