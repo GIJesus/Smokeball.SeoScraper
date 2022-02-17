@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Smokeball___Development_Project
 {
-    internal interface IHtmlParser
+    public interface IHtmlParser
     {
         public int[] FindMatchingTextResultPositions(string HtmlContent, string targetText);
     }
 
-    internal class HtmlParser : IHtmlParser
+    public class HtmlParser : IHtmlParser
     {
         public int[] FindMatchingTextResultPositions(string HtmlContent, string targetText)
         {
@@ -20,19 +16,19 @@ namespace Smokeball___Development_Project
             List<int> result = new List<int>();
             foreach(string chunk in chunks)
             {
+                int a = chunk.IndexOf("url?q=");
+                int b = chunk.IndexOf(';');
                 if (chunk.Contains(targetText))
                     result.Add(idx);
                 idx++;
             }
-
-            return chunks.Select((chunk, idx) => chunk.Contains(targetText) ? idx : -1).Where(idx => idx != -1).ToArray();
-            //return result.ToArray();
+            return result.ToArray();
         }
 
         private string[] parseGoogleResultChunksFromHtml(string HtmlContent)
         {
             // This Class ID used to identify search result is manually parsed from sample html returned by running the query. My recommendation is to use googles API
-            string classId = "egMi0 kCrYT";
+            string classId = "ZINbbc luh4tb xpd O9g5cc uUPGi";
             return HtmlContent.Split(classId);
         }
     }
