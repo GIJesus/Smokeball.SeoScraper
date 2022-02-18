@@ -32,6 +32,8 @@ namespace Smokeball___Development_Project
             e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
         }
 
+        /// Code below this line was copied from Stack exchange for the sole purpose of suppressing script errors on the web view which cannot render web pages without bombarding the user with script errors
+        /// https://stackoverflow.com/questions/6138199/wpf-webbrowser-control-how-to-suppress-script-errors
         private void WebBrowser_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
             SetSilent(WebBrowser, true); // make it silent
