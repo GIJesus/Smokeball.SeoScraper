@@ -4,6 +4,27 @@
              xmlns:local="clr-namespace:Smokeball___Development_Project"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MetroDark.MSControls.Core.Implicit.xaml" />
+                <ResourceDictionary Source="Themes/MetroDark.MSControls.Toolkit.Implicit.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Dark Theme -->
+            <SolidColorBrush x:Key="BackgroundKey" Color="#FE101010" />
+
+            <Style x:Key="HeaderTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="Foreground" Value="#FF00AADE" />
+            </Style>
+
+            <Style x:Key="SubHeaderTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="Foreground" Value="#FF00AADE" />
+            </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
