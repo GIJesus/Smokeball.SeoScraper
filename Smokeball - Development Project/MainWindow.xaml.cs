@@ -23,7 +23,7 @@ namespace Smokeball___Development_Project
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             m_mainViewModel.ExecuteGoogleQuery();
-            this.WebBrowser.Navigate(new Uri(m_mainViewModel.QueryUrl));
+            this.WebBrowser.NavigateToString(m_mainViewModel.PageHtmlContent);
         }
 
         private void TextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
@@ -57,7 +57,6 @@ namespace Smokeball___Development_Project
                 }
             }
         }
-
 
         [ComImport, Guid("6D5140C1-7436-11CE-8034-00AA006009FA"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
         private interface IOleServiceProvider

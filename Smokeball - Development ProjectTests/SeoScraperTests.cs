@@ -12,7 +12,7 @@ namespace Smokeball___Development_Project.Tests
             Assert.IsNotNull(mvm);
             mvm.TargetText = "1";
             mvm.ExecuteGoogleQuery();
-            Assert.AreEqual(mvm.TargetText, $"Results found on lines:\n[ 1 ]");
+            Assert.AreEqual($"Results found on lines:\n[1]", mvm.ResultBoxText);
         }
 
         [TestMethod()]
@@ -22,7 +22,7 @@ namespace Smokeball___Development_Project.Tests
             Assert.IsNotNull(mvm);
             mvm.TargetText = "3";
             mvm.ExecuteGoogleQuery();
-            Assert.AreEqual(mvm.TargetText, $"Results found on lines:\n[ 1, 3, 5 ]");
+            Assert.AreEqual($"Results found on lines:\n[1, 3, 5]", mvm.ResultBoxText);
         }
 
         [TestMethod()]
@@ -32,7 +32,7 @@ namespace Smokeball___Development_Project.Tests
             Assert.IsNotNull(mvm);
             mvm.TargetText = "5";
             mvm.ExecuteGoogleQuery();
-            Assert.AreEqual(mvm.TargetText, $"Results found on lines:\n[ 2, 4, 6, 8, 10 ]");
+            Assert.AreEqual($"Results found on lines:\n[2, 4, 6, 8, 10]", mvm.ResultBoxText);
         }
 
         [TestMethod()]
@@ -42,7 +42,7 @@ namespace Smokeball___Development_Project.Tests
             Assert.IsNotNull(mvm);
             mvm.TargetText = "0";
             mvm.ExecuteGoogleQuery();
-            Assert.AreEqual(mvm.TargetText, $"No results found:\n[ 0 ]");
+            Assert.AreEqual($"No results found:\n[0]", mvm.ResultBoxText);
         }
     }
 
@@ -73,7 +73,7 @@ namespace Smokeball___Development_Project.Tests
                     break;
                 default:
                     {
-                        result = new int[1] { 0 };
+                        result = new int[0];
                     }
                     break;
             }

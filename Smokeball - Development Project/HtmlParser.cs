@@ -14,12 +14,15 @@ namespace Smokeball___Development_Project
             string[] chunks = parseGoogleResultChunksFromHtml(HtmlContent);
             int idx = 0;
             List<int> result = new List<int>();
-            foreach(string chunk in chunks)
+            foreach (string chunk in chunks)
             {
-                int a = chunk.IndexOf("url?q=");
-                int b = chunk.IndexOf(';');
-                if (chunk.Contains(targetText))
-                    result.Add(idx);
+                int urlStart = chunk.IndexOf("url?q=");
+                if (urlStart >= 0)
+                {
+                    int urlEnd = chunk.IndexOf(';');
+                    if (chunk.Substring(urlStart, urlEnd).Contains(targetText))
+                        result.Add(idx);
+                }
                 idx++;
             }
             return result.ToArray();
