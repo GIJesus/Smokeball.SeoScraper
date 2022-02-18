@@ -62,7 +62,7 @@ namespace Smokeball___Development_Project
             set
             {
                 resultBoxText = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("ResultList"));
+                OnPropertyChanged(new PropertyChangedEventArgs("ResultBoxText"));
             }
         }
 
